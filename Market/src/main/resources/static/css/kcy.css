@@ -1,0 +1,385 @@
+@charset "UTF-8";
+
+/* submit버튼 */
+.submit {
+	border: none;
+	padding: 10px 70px;
+	border-radius: 8px;
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	background:#ffd4a1;
+	color: #fff;
+	font-weight: bold;
+}
+.frame {
+	width:90%;
+	margin:40px auto;
+	text-align:center;
+}
+button {
+	margin: 20px;
+	outline: none;
+}
+.custom-btn {
+	width: 130px;
+	height: 40px;
+	padding: 10px 25px;
+	margin: 0 auto;
+	border: none;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+.btn-15 {
+	background:#ffd4a1;
+	color: #fff;
+	z-index: 1;
+	overflow: hidden;
+	width:200px;
+}
+.btn-15:after {
+	position: absolute;
+	content: "";
+	width: 0;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: -1;
+	background: #e0e5ec;
+	transition: all 0.3s ease;
+}
+.btn-15:hover {
+	color: #ffd4a1;
+	border:1px solid #ffd4a1;
+}
+.btn-15:hover:after {
+	background:rgb(251, 250, 250);
+	left: 0;
+	width: 100%;
+}
+.btn-15:active {
+	top: 2px;
+}
+/* 회원가입,수정,탈퇴 */
+h2.title{
+	padding-top:20px;
+	font-weight:bold;
+}
+span{
+	font-size: 18px;
+	margin-bottom:0;
+}
+span.title2{
+	font-size: 12px;
+	color:#bdbcb9;
+}
+ul{
+    padding:0;
+    margin:0;
+	list-style:none;
+}
+li{
+    margin-bottom:15px;
+}
+#member_register label,
+#member_modify label{
+    display:inline-block;
+    width:80px;
+    font-weight:bold;
+    margin-right:10px;
+}
+#member_changePasswd label,
+#member_delete label{
+	display:inline-block;
+    width:158px;
+    font-weight:bold;
+    margin-right:10px;
+    margin-left:70px;
+    text-align:right;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    width: 665px;
+    padding:7px 5px;
+    border:0;
+    color: #333;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    position: relative;
+    background-color:rgb(245,245,245);
+}
+input.effect-1 {
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+.effect-1:focus {
+    outline: none;
+    border-bottom: 1px solid #000; /* 포커스 시 하단 선 색상 변경 */
+    transition: border-bottom 0.2s ease-in-out;
+}
+#member_register .default-btn,
+#member_modify .default-btn{
+	background-color:#ffd4a1;
+	font-weight: 100 !important;
+	font-size: 16px;
+	font-weight:bold;
+    color: #fff; /* 버튼 텍스트를 하얀색으로 */
+    border: none; /* 기본 테두리 제거 */
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 95px;
+}
+#member_changePasswd .default-btn,
+#member_delete .default-btn{
+	background-color:#ffd4a1;
+	font-weight: 100 !important;
+	font-size: 16px;
+	font-weight:bold;
+    color: #fff; /* 버튼 텍스트를 하얀색으로 */
+    border: none; /* 기본 테두리 제거 */
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+}
+.default-btn:hover{
+    background-color:gray;
+}
+.error-color{
+	font-size: 12px;
+    color: red;
+}
+#message_id {
+    display: block;
+    width: 200px;
+    margin-top:5px;
+    margin-left:205px;	
+    font-size: 12px;
+}
+input[id="mem_zipcode"] {
+    width:200px;
+}
+input[id="mem_address1"]{
+	width:220px;
+	margin-top:10px;
+}
+input#mem_zipcode {
+    width:100px;
+}
+#mem_birth {
+    width: 360px;
+    padding-right: 30px;
+}
+
+/* datepicker Style */
+.calendar-button {
+	width: 25px;
+    height: 25px;
+    margin:0 auto;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.calendar-button i {
+    font-size:25px; /* 아이콘 크기 조정 */
+}
+.ui-datepicker {
+    font-size: 15px;
+}
+.ui-datepicker select.ui-datepicker-year{
+    padding:5px 0;
+}
+.ui-datepicker select.ui-datepicker-month{
+    padding:5px 0;
+}
+.ui-datepicker span{
+    font-size: 13px;
+}
+.ui-datepicker-header {
+    background-color:#f5f7f5;
+    border: 1px solid #ddd;
+}
+.ui-datepicker-calendar th {
+    background-color:#fff;
+    border: 1px solid #b8b8b8;
+    font-size: 12px;
+}
+.ui-datepicker-calendar {
+    background-color:#f5f7f5;
+    border: 1px solid #ddd;
+}
+.rounded {
+	border-radius: 10px;
+}
+.btn {
+	position: relative;
+	border: 0;
+	display: inline-block;
+	text-align: center;
+	color: white;
+}
+.msg{
+	padding:10px;
+	border-radius:10px;
+	box-shadow:inset 3px 3px 10px #e6e6e6;
+}
+/* 로그인 */
+.login {
+    height:650px;
+    width: 100%;
+    position: relative;
+}
+.login_box {
+    width: 1300px;
+    height: 650px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #ffd4a1;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_box .left{
+	width: 41%;
+	height: 100%;
+	padding: 25px 25px;
+}
+.login_box .right{
+	width: 59%;
+	height: 100%  
+}
+.left .contact{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	height: 80%;
+	width: 73%;
+	margin: auto;
+}
+.left input#mem_passwd {
+	border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.left input#mem_passwd {
+	border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.left input#mem_id {
+	border: none;
+    width: 80%;
+    margin-top:100px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.left {
+	background:rgb(251, 250, 250);
+}
+.right {
+	background: linear-gradient(212.38deg, #fabc73 0%, #fabc73 30%),url('../images/loginImage.jpg');
+	background-size : cover;
+	background-position: center;
+	color: #fff;
+	position: relative;
+	height: 100vh;
+}
+
+.right .right-text{
+	height: 100%;
+	position: relative;
+	transform: translate(0%, 45%);
+}
+.right-text h2{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 50px;
+	font-weight: 500;
+}
+.right-text h5{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 19px;
+	font-weight: 400;
+}
+
+.right .right-inductor{
+	position: absolute;
+	width: 70px;
+	height: 7px;
+	background: #fff0;
+	left: 50%;
+	bottom: 70px;
+	transform: translate(-50%, 0%);
+}
+form#member_findId,form#member_findPasswd{
+    width: 400px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+}
+#member_findId ul{
+    padding: 0;
+    list-style:none;
+}
+input#auto{
+	margin-right:5px;
+}
+#member_login label[for="auto"]{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.button-container {
+	margin-top:25px;
+    display:flex;
+    width:350px;
+    justify-content: flex-end;
+}
+.button-container input[type="button"] {
+	border:none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+#member_login .error-color{
+	margin-bottom:15px;
+	font-size: 15px;
+    color: red;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="ychmember" template="/WEB-INF/views/template/layout_mypage.jsp">
+		<put-attribute name="css" value="/WEB-INF/views/common/css.jsp" />
+		<put-attribute name="bootstrap" value="/WEB-INF/views/common/bootStrap.jsp" />
+		<put-attribute name="nav" value="/WEB-INF/views/template/nav_mypage.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	<!-- MyPage(일반) -->
+	<definition name="myPage" extends="ychmember">
+		<put-attribute name="title" value="My페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/member/memberView.jsp" />
+	</definition>
+	<definition name="memberModify" extends="ychmember">
+		<put-attribute name="title" value="회원정보 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberModify.jsp"/>
+	</definition>
+	<definition name="memberChangePasswd" extends="ychmember">
+		<put-attribute name="title" value="비밀번호 변경"/>
+		<put-attribute name="body" value="/WEB-INF/views/member/memberChangePasswd.jsp"/>
+	</definition>
+</tiles-definitions>
+
+
+
+
+
+
+
+
+

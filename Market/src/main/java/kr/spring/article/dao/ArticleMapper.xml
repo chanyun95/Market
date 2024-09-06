@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.article.dao.ArticleMapper">
+	<!-- 물픔 등록 -->
+	<insert id="insertArticle" parameterType="articleVO">
+		INSERT INTO article(
+			arti_num,arti_category,arti_name,arti_content,arti_price,arti_image,arti_location,arti_loaction2
+		)
+		VALUES(
+			article_seq.nextval,#{arti_category},#{arti_name},#{arti_content},#{arti_price},#{arti_image,jdbcType=VARCHAR},#{arti_location},#{arti_location2}
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
