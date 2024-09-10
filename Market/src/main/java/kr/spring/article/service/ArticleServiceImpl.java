@@ -22,14 +22,12 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 	@Override
 	public List<ArticleVO> getArticleList(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleMapper.getArticleList(map);
 	}
 
 	@Override
 	public Integer selectRowCount(Map<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleMapper.selectRowCount(map);
 	}
 
 	@Override

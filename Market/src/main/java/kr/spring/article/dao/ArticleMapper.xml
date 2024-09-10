@@ -5,13 +5,64 @@
 <mapper namespace="kr.spring.article.dao.ArticleMapper">
 	<!-- 물픔 등록 -->
 	<insert id="insertArticle" parameterType="articleVO">
-		INSERT INTO article(
-			arti_num,arti_category,arti_name,arti_content,arti_price,arti_image,arti_location,arti_loaction2
-		)
-		VALUES(
-			article_seq.nextval,#{arti_category},#{arti_name},#{arti_content},#{arti_price},#{arti_image,jdbcType=VARCHAR},#{arti_location},#{arti_location2}
-		)
+	    INSERT INTO article (
+	        arti_num, arti_category, arti_name, arti_content, arti_price, arti_image, arti_location, arti_location2,mem_num
+	    ) VALUES (
+	        article_seq.nextval, #{arti_category}, #{arti_name}, #{arti_content}, #{arti_price}, #{arti_image, jdbcType=BLOB}, #{arti_location}, #{arti_location2},#{mem_num}
+	    )
 	</insert>
+	<sql id="artiSearch">
+		<where>
+			<if test="arti_category!=null and arti_category != ''">
+				arti_category = #{arti_category}
+			</if>
+			<if test="keyword != null and keyword = ''">
+				<if test="arti_category != null and arti_category != ''">
+					AND
+				</if>
+				<if test="keyfield == 1">
+					arti_name LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield == 2">
+					arti_content LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="keyfield == 3">
+					(arti_name LIKE '%' || #{keyword} || '%' OR
+					arti_content LIKE '%' || #{keyword} || '%')
+				</if>
+			</if>
+		</where>
+	</sql>
+	<sql id="artiOrder">
+		<if test="order == 1">
+			ORDER BY arti_hit DESC
+		</if>
+		<if test="order == 2">
+			ORDER BY arti_price DESC
+		</if>
+	</sql>
+	<select id="selectRowCount" parameterType="map" resultType="integer">
+		SELECT COUNT(*) FROM article 
+		JOIN member 
+		USING (mem_num)
+		<include refid="artiSearch"></include>
+	</select>
+	<select id="getArticleList" parameterType="map" resultType="articleVO">
+		SELECT * FROM (SELECT a.*, rownum rnum 
+		FROM (SELECT arti_num,
+					<![CDATA[
+					REPLACE(REPLACE(arti_name,'<','&lt;'),'>','&gt;') title,
+					]]>
+					arti_hit,arti_image,arti_reg,mem_num,arti_price,arti_name,arti_location,arti_sold 
+				FROM article 
+				JOIN member USING(mem_num)
+				<include refid="artiSearch"></include>
+				<include refid="artiOrder"></include>
+				)a)
+		<![CDATA[
+		WHERE rnum >= #{start} AND rnum <= #{end}
+		]]>
+	</select>
 </mapper>
 
 

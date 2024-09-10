@@ -7,23 +7,23 @@
 	<form:form action="insertArticle" id="article_insert" enctype="multipart/form-data" modelAttribute="articleVO">
 		<ul>
 			<li>
-				<input type="file" name="arti_image" id="arti_image">
+				<input type="file" name="arti_upload" id="arti_upload">
 			</li>
 			<li>
 			    <form:label path="arti_category">카테고리</form:label>
 			    <form:select path="arti_category">
 			        <option disabled="disabled" selected>선택하세요</option>
-			        <form:option value="1">전자기기</form:option>
-			        <form:option value="2">가전제품</form:option>
-			        <form:option value="3">가구</form:option>
-			        <form:option value="4">의류</form:option>
-			        <form:option value="5">자동차</form:option>
-			        <form:option value="6">스포츠/레저</form:option>
-			        <form:option value="7">가정용품</form:option>
-			        <form:option value="8">도서/음악/영화</form:option>
-			        <form:option value="9">문구/사무용품</form:option>
-			        <form:option value="10">장난감</form:option>
-			        <form:option value="11">기타</form:option>
+			        <form:option value="전자기기">전자기기</form:option>
+			        <form:option value="가전제품">가전제품</form:option>
+			        <form:option value="가구">가구</form:option>
+			        <form:option value="의류">의류</form:option>
+			        <form:option value="자동차">자동차</form:option>
+			        <form:option value="스포츠/레저">스포츠/레저</form:option>
+			        <form:option value="가정용품">가정용품</form:option>
+			        <form:option value="도서/음악/영화">도서/음악/영화</form:option>
+			        <form:option value="문구/사무용품">문구/사무용품</form:option>
+			        <form:option value="장난감">장난감</form:option>
+			        <form:option value="기타">기타</form:option>
 			    </form:select>
 			</li>
 			<li>
@@ -53,6 +53,10 @@
 				<form:errors path="arti_location2" error="error-color"/>
 			</li>
 		</ul>
+		<div class="button-insert">
+			<input type="button" value="취소" id="reload_btn" onclick="location.href='${pageContext.request.contextPath}/main/main'">		
+			<form:button class="default-btn fw-7 fs-17">물품 등록</form:button>
+		</div>
 	</form:form>
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">

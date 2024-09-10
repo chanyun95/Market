@@ -27,6 +27,7 @@ create table member_detail(
 );
 create table article (
     arti_num NUMBER NOT NULL,
+    mem_num NUMBER NOT NULL,
     arti_category VARCHAR2(100) NOT NULL,
     arti_name VARCHAR2(50) NOT NULL,
     arti_content CLOB NOT NULL,
@@ -36,6 +37,9 @@ create table article (
     arti_modify DATE,
     arti_hit NUMBER DEFAULT 0 NOT NULL,
     arti_sold CHAR(1) DEFAULT 'N' NOT NULL,
-    CONSTRAINT arti_num_pk PRIMARY KEY (arti_num)
+    arti_location VARCHAR2(150) NOT NULL,
+    arti_location2 VARCHAR2(150) NOT NULL,
+    CONSTRAINT article_pk PRIMARY KEY (arti_num),
+    CONSTRAINT article_fk FOREIGN KEY (mem_num) REFERENCES member (mem_num)
 );
 create sequence article_seq;
