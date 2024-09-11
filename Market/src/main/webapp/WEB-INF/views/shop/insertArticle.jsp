@@ -1,126 +1,126 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container">
-	<h2>»óÇ°µî·Ï</h2>
+	<h2>ìƒí’ˆë“±ë¡</h2>
 	<form:form action="insertArticle" id="article_insert" enctype="multipart/form-data" modelAttribute="articleVO">
 		<ul>
 			<li>
 				<input type="file" name="arti_upload" id="arti_upload">
 			</li>
 			<li>
-			    <form:label path="arti_category">Ä«Å×°í¸®</form:label>
+			    <form:label path="arti_category">ì¹´í…Œê³ ë¦¬</form:label>
 			    <form:select path="arti_category">
-			        <option disabled="disabled" selected>¼±ÅÃÇÏ¼¼¿ä</option>
-			        <form:option value="ÀüÀÚ±â±â">ÀüÀÚ±â±â</form:option>
-			        <form:option value="°¡ÀüÁ¦Ç°">°¡ÀüÁ¦Ç°</form:option>
-			        <form:option value="°¡±¸">°¡±¸</form:option>
-			        <form:option value="ÀÇ·ù">ÀÇ·ù</form:option>
-			        <form:option value="ÀÚµ¿Â÷">ÀÚµ¿Â÷</form:option>
-			        <form:option value="½ºÆ÷Ã÷/·¹Àú">½ºÆ÷Ã÷/·¹Àú</form:option>
-			        <form:option value="°¡Á¤¿ëÇ°">°¡Á¤¿ëÇ°</form:option>
-			        <form:option value="µµ¼­/À½¾Ç/¿µÈ­">µµ¼­/À½¾Ç/¿µÈ­</form:option>
-			        <form:option value="¹®±¸/»ç¹«¿ëÇ°">¹®±¸/»ç¹«¿ëÇ°</form:option>
-			        <form:option value="Àå³­°¨">Àå³­°¨</form:option>
-			        <form:option value="±âÅ¸">±âÅ¸</form:option>
+			        <option disabled="disabled" selected>ì„ íƒí•˜ì„¸ìš”</option>
+			        <form:option value="1">ì „ìê¸°ê¸°</form:option>
+			        <form:option value="2">ê°€ì „ì œí’ˆ</form:option>
+			        <form:option value="3">ê°€êµ¬</form:option>
+			        <form:option value="4">ì˜ë¥˜</form:option>
+			        <form:option value="5">ìë™ì°¨</form:option>
+			        <form:option value="6">ìŠ¤í¬ì¸ /ë ˆì €</form:option>
+			        <form:option value="7">ê°€ì •ìš©í’ˆ</form:option>
+			        <form:option value="8">ë„ì„œ/ìŒì•…/ì˜í™”</form:option>
+			        <form:option value="9">ë¬¸êµ¬/ì‚¬ë¬´ìš©í’ˆ</form:option>
+			        <form:option value="10">ì¥ë‚œê°</form:option>
+			        <form:option value="11">ê¸°íƒ€</form:option>
 			    </form:select>
 			</li>
 			<li>
-				<form:label path="arti_name">Á¦¸ñ</form:label>
-				<form:input path="arti_name" placeholder="Á¦¸ñ"/>
+				<form:label path="arti_name">ì œëª©</form:label>
+				<form:input path="arti_name" placeholder="ì œëª©"/>
 				<form:errors path="arti_name" error="error-color"/>
 			</li>
 			<li>
-				<form:label path="arti_price">°¡°İ</form:label>
-				<form:input path="arti_price" placeholder="°¡°İÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä."/>
+				<form:label path="arti_price">ê°€ê²©</form:label>
+				<form:input path="arti_price" placeholder="ê°€ê²©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”."/>
 				<form:errors path="arti_price" error="error-color"/>
 			</li>
 			<li>
-				<form:label path="arti_content">ÀÚ¼¼ÇÑ ¼³¸í</form:label>
-				<form:input path="arti_content" placeholder="½Å·ÚÇÒ ¼ö ÀÖ´Â °Å·¡¸¦ À§ÇØ ÀÚ¼¼È÷ Àû¾îÁÖ¼¼¿ä.(ÆÇ¸Å±İÁö ¹°Ç°Àº °Ô½Ã°¡ Á¦ÇÑµÉ ¼ö ÀÖ½À´Ï´Ù.)"/>
+				<form:label path="arti_content">ìì„¸í•œ ì„¤ëª…</form:label>
+				<form:input path="arti_content" placeholder="ì‹ ë¢°í•  ìˆ˜ ìˆëŠ” ê±°ë˜ë¥¼ ìœ„í•´ ìì„¸íˆ ì ì–´ì£¼ì„¸ìš”.(íŒë§¤ê¸ˆì§€ ë¬¼í’ˆì€ ê²Œì‹œê°€ ì œí•œë  ìˆ˜ ìˆìŠµë‹ˆë‹¤.)"/>
 				<form:errors path="arti_content" error="error-color"/>
 			</li>
 			<li>
-				<form:label path="arti_location">°Å·¡ Èñ¸Á Àå¼Ò</form:label>
-				<form:input path="arti_location" placeholder="°Å·¡ ÁÖ¼Ò"/>
+				<form:label path="arti_location">ê±°ë˜ í¬ë§ ì¥ì†Œ</form:label>
+				<form:input path="arti_location" placeholder="ê±°ë˜ ì£¼ì†Œ"/>
 				<input type="button" onclick="DaumPostcode()" value=">" class="default-btn">
 				<form:errors path="arti_location" error="error-color"/>
 			</li>
 			<li>
-				<form:label path="arti_location2">¼±ÅÃÇÑ ÁÖ¼ÒÀÇ Àå¼Ò¸íÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä</form:label>
-				<form:input path="arti_location2" placeholder="¿¹) °­³²¿ª 1¹ø Ãâ±¸,±³º¸Å¸¿ö ¾Õ"/>
+				<form:label path="arti_location2">ì„ íƒí•œ ì£¼ì†Œì˜ ì¥ì†Œëª…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”</form:label>
+				<form:input path="arti_location2" placeholder="ì˜ˆ) ê°•ë‚¨ì—­ 1ë²ˆ ì¶œêµ¬,êµë³´íƒ€ì›Œ ì•"/>
 				<form:errors path="arti_location2" error="error-color"/>
 			</li>
 		</ul>
 		<div class="button-insert">
-			<input type="button" value="Ãë¼Ò" id="reload_btn" onclick="location.href='${pageContext.request.contextPath}/main/main'">		
-			<form:button class="default-btn fw-7 fs-17">¹°Ç° µî·Ï</form:button>
+			<input type="button" value="ì·¨ì†Œ" id="reload_btn" onclick="location.href='${pageContext.request.contextPath}/main/main'">		
+			<form:button class="default-btn fw-7 fs-17">ë¬¼í’ˆ ë“±ë¡</form:button>
 		</div>
 	</form:form>
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="´İ±â ¹öÆ°">
+<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="ë‹«ê¸° ë²„íŠ¼">
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-    // ¿ìÆí¹øÈ£ Ã£±â È­¸éÀ» ³ÖÀ» element
+    // ìš°í¸ë²ˆí˜¸ ì°¾ê¸° í™”ë©´ì„ ë„£ì„ element
     var element_layer = document.getElementById('layer');
 
     function closeDaumPostcode() {
-        // iframeÀ» ³ÖÀº element¸¦ ¾Èº¸ÀÌ°Ô ÇÑ´Ù.
+        // iframeì„ ë„£ì€ elementë¥¼ ì•ˆë³´ì´ê²Œ í•œë‹¤.
         element_layer.style.display = 'none';
     }
 
     function DaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
-                // °Ë»ö°á°ú Ç×¸ñÀ» Å¬¸¯ÇßÀ»¶§ ½ÇÇàÇÒ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ºÎºĞ.
+                // ê²€ìƒ‰ê²°ê³¼ í•­ëª©ì„ í´ë¦­í–ˆì„ë•Œ ì‹¤í–‰í•  ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” ë¶€ë¶„.
 
-                // °¢ ÁÖ¼ÒÀÇ ³ëÃâ ±ÔÄ¢¿¡ µû¶ó ÁÖ¼Ò¸¦ Á¶ÇÕÇÑ´Ù.
-                // ³»·Á¿À´Â º¯¼ö°¡ °ªÀÌ ¾ø´Â °æ¿ì¿£ °ø¹é('')°ªÀ» °¡Áö¹Ç·Î, ÀÌ¸¦ Âü°íÇÏ¿© ºĞ±â ÇÑ´Ù.
-                var addr = ''; // ÁÖ¼Ò º¯¼ö
-                var extraAddr = ''; // Âü°íÇ×¸ñ º¯¼ö
+                // ê° ì£¼ì†Œì˜ ë…¸ì¶œ ê·œì¹™ì— ë”°ë¼ ì£¼ì†Œë¥¼ ì¡°í•©í•œë‹¤.
+                // ë‚´ë ¤ì˜¤ëŠ” ë³€ìˆ˜ê°€ ê°’ì´ ì—†ëŠ” ê²½ìš°ì—” ê³µë°±('')ê°’ì„ ê°€ì§€ë¯€ë¡œ, ì´ë¥¼ ì°¸ê³ í•˜ì—¬ ë¶„ê¸° í•œë‹¤.
+                var addr = ''; // ì£¼ì†Œ ë³€ìˆ˜
+                var extraAddr = ''; // ì°¸ê³ í•­ëª© ë³€ìˆ˜
 
-                //»ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò Å¸ÀÔ¿¡ µû¶ó ÇØ´ç ÁÖ¼Ò °ªÀ» °¡Á®¿Â´Ù.
-                if (data.userSelectedType === 'R') { // »ç¿ëÀÚ°¡ µµ·Î¸í ÁÖ¼Ò¸¦ ¼±ÅÃÇßÀ» °æ¿ì
+                //ì‚¬ìš©ìê°€ ì„ íƒí•œ ì£¼ì†Œ íƒ€ì…ì— ë”°ë¼ í•´ë‹¹ ì£¼ì†Œ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+                if (data.userSelectedType === 'R') { // ì‚¬ìš©ìê°€ ë„ë¡œëª… ì£¼ì†Œë¥¼ ì„ íƒí–ˆì„ ê²½ìš°
                     addr = data.roadAddress;
-                } else { // »ç¿ëÀÚ°¡ Áö¹ø ÁÖ¼Ò¸¦ ¼±ÅÃÇßÀ» °æ¿ì(J)
+                } else { // ì‚¬ìš©ìê°€ ì§€ë²ˆ ì£¼ì†Œë¥¼ ì„ íƒí–ˆì„ ê²½ìš°(J)
                     addr = data.jibunAddress;
                 }
 
-                // »ç¿ëÀÚ°¡ ¼±ÅÃÇÑ ÁÖ¼Ò°¡ µµ·Î¸í Å¸ÀÔÀÏ¶§ Âü°íÇ×¸ñÀ» Á¶ÇÕÇÑ´Ù.
+                // ì‚¬ìš©ìê°€ ì„ íƒí•œ ì£¼ì†Œê°€ ë„ë¡œëª… íƒ€ì…ì¼ë•Œ ì°¸ê³ í•­ëª©ì„ ì¡°í•©í•œë‹¤.
                 if(data.userSelectedType === 'R'){
-                    // ¹ıÁ¤µ¿¸íÀÌ ÀÖÀ» °æ¿ì Ãß°¡ÇÑ´Ù. (¹ıÁ¤¸®´Â Á¦¿Ü)
-                    // ¹ıÁ¤µ¿ÀÇ °æ¿ì ¸¶Áö¸· ¹®ÀÚ°¡ "µ¿/·Î/°¡"·Î ³¡³­´Ù.
-                    if(data.bname !== '' && /[µ¿|·Î|°¡]$/g.test(data.bname)){
+                    // ë²•ì •ë™ëª…ì´ ìˆì„ ê²½ìš° ì¶”ê°€í•œë‹¤. (ë²•ì •ë¦¬ëŠ” ì œì™¸)
+                    // ë²•ì •ë™ì˜ ê²½ìš° ë§ˆì§€ë§‰ ë¬¸ìê°€ "ë™/ë¡œ/ê°€"ë¡œ ëë‚œë‹¤.
+                    if(data.bname !== '' && /[ë™|ë¡œ|ê°€]$/g.test(data.bname)){
                         extraAddr += data.bname;
                     }
-                    // °Ç¹°¸íÀÌ ÀÖ°í, °øµ¿ÁÖÅÃÀÏ °æ¿ì Ãß°¡ÇÑ´Ù.
+                    // ê±´ë¬¼ëª…ì´ ìˆê³ , ê³µë™ì£¼íƒì¼ ê²½ìš° ì¶”ê°€í•œë‹¤.
                     if(data.buildingName !== '' && data.apartment === 'Y'){
                         extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
                     }
-                    // Ç¥½ÃÇÒ Âü°íÇ×¸ñÀÌ ÀÖÀ» °æ¿ì, °ıÈ£±îÁö Ãß°¡ÇÑ ÃÖÁ¾ ¹®ÀÚ¿­À» ¸¸µç´Ù.
+                    // í‘œì‹œí•  ì°¸ê³ í•­ëª©ì´ ìˆì„ ê²½ìš°, ê´„í˜¸ê¹Œì§€ ì¶”ê°€í•œ ìµœì¢… ë¬¸ìì—´ì„ ë§Œë“ ë‹¤.
                     if(extraAddr !== ''){
                         extraAddr = ' (' + extraAddr + ')';
                     }
-                    //(ÁÖÀÇ)address1¿¡ Âü°íÇ×¸ñÀÌ º¸¿©Áöµµ·Ï ¼öÁ¤
-                    // Á¶ÇÕµÈ Âü°íÇ×¸ñÀ» ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
-                    //(¼öÁ¤) document.getElementById("address2").value = extraAddr;
+                    //(ì£¼ì˜)address1ì— ì°¸ê³ í•­ëª©ì´ ë³´ì—¬ì§€ë„ë¡ ìˆ˜ì •
+                    // ì¡°í•©ëœ ì°¸ê³ í•­ëª©ì„ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
+                    //(ìˆ˜ì •) document.getElementById("address2").value = extraAddr;
                 
                 } 
-                //(¼öÁ¤) else {
-                //(¼öÁ¤)    document.getElementById("address2").value = '';
-                //(¼öÁ¤) }
+                //(ìˆ˜ì •) else {
+                //(ìˆ˜ì •)    document.getElementById("address2").value = '';
+                //(ìˆ˜ì •) }
 
-                // ¿ìÆí¹øÈ£¿Í ÁÖ¼Ò Á¤º¸¸¦ ÇØ´ç ÇÊµå¿¡ ³Ö´Â´Ù.
+                // ìš°í¸ë²ˆí˜¸ì™€ ì£¼ì†Œ ì •ë³´ë¥¼ í•´ë‹¹ í•„ë“œì— ë„£ëŠ”ë‹¤.
                 //document.getElementById('mem_zipcode').value = data.zonecode;
-                //(¼öÁ¤) + extraAddr¸¦ Ãß°¡ÇØ¼­ address1¿¡ Âü°íÇ×¸ñÀÌ º¸¿©Áöµµ·Ï ¼öÁ¤
+                //(ìˆ˜ì •) + extraAddrë¥¼ ì¶”ê°€í•´ì„œ address1ì— ì°¸ê³ í•­ëª©ì´ ë³´ì—¬ì§€ë„ë¡ ìˆ˜ì •
                 document.getElementById("arti_location").value = addr + extraAddr;
-                // Ä¿¼­¸¦ »ó¼¼ÁÖ¼Ò ÇÊµå·Î ÀÌµ¿ÇÑ´Ù.
+                // ì»¤ì„œë¥¼ ìƒì„¸ì£¼ì†Œ í•„ë“œë¡œ ì´ë™í•œë‹¤.
                 document.getElementById("arti_location2").focus();
 
-                // iframeÀ» ³ÖÀº element¸¦ ¾Èº¸ÀÌ°Ô ÇÑ´Ù.
-                // (autoClose:false ±â´ÉÀ» ÀÌ¿ëÇÑ´Ù¸é, ¾Æ·¡ ÄÚµå¸¦ Á¦°ÅÇØ¾ß È­¸é¿¡¼­ »ç¶óÁöÁö ¾Ê´Â´Ù.)
+                // iframeì„ ë„£ì€ elementë¥¼ ì•ˆë³´ì´ê²Œ í•œë‹¤.
+                // (autoClose:false ê¸°ëŠ¥ì„ ì´ìš©í•œë‹¤ë©´, ì•„ë˜ ì½”ë“œë¥¼ ì œê±°í•´ì•¼ í™”ë©´ì—ì„œ ì‚¬ë¼ì§€ì§€ ì•ŠëŠ”ë‹¤.)
                 element_layer.style.display = 'none';
             },
             width : '100%',
@@ -128,26 +128,26 @@
             maxSuggestItems : 5
         }).embed(element_layer);
 
-        // iframeÀ» ³ÖÀº element¸¦ º¸ÀÌ°Ô ÇÑ´Ù.
+        // iframeì„ ë„£ì€ elementë¥¼ ë³´ì´ê²Œ í•œë‹¤.
         element_layer.style.display = 'block';
 
-        // iframeÀ» ³ÖÀº elementÀÇ À§Ä¡¸¦ È­¸éÀÇ °¡¿îµ¥·Î ÀÌµ¿½ÃÅ²´Ù.
+        // iframeì„ ë„£ì€ elementì˜ ìœ„ì¹˜ë¥¼ í™”ë©´ì˜ ê°€ìš´ë°ë¡œ ì´ë™ì‹œí‚¨ë‹¤.
         initLayerPosition();
     }
 
-    // ºê¶ó¿ìÀúÀÇ Å©±â º¯°æ¿¡ µû¶ó ·¹ÀÌ¾î¸¦ °¡¿îµ¥·Î ÀÌµ¿½ÃÅ°°íÀÚ ÇÏ½Ç¶§¿¡´Â
-    // resizeÀÌº¥Æ®³ª, orientationchangeÀÌº¥Æ®¸¦ ÀÌ¿ëÇÏ¿© °ªÀÌ º¯°æµÉ¶§¸¶´Ù ¾Æ·¡ ÇÔ¼ö¸¦ ½ÇÇà ½ÃÄÑ ÁÖ½Ã°Å³ª,
-    // Á÷Á¢ element_layerÀÇ top,left°ªÀ» ¼öÁ¤ÇØ ÁÖ½Ã¸é µË´Ï´Ù.
+    // ë¸Œë¼ìš°ì €ì˜ í¬ê¸° ë³€ê²½ì— ë”°ë¼ ë ˆì´ì–´ë¥¼ ê°€ìš´ë°ë¡œ ì´ë™ì‹œí‚¤ê³ ì í•˜ì‹¤ë•Œì—ëŠ”
+    // resizeì´ë²¤íŠ¸ë‚˜, orientationchangeì´ë²¤íŠ¸ë¥¼ ì´ìš©í•˜ì—¬ ê°’ì´ ë³€ê²½ë ë•Œë§ˆë‹¤ ì•„ë˜ í•¨ìˆ˜ë¥¼ ì‹¤í–‰ ì‹œì¼œ ì£¼ì‹œê±°ë‚˜,
+    // ì§ì ‘ element_layerì˜ top,leftê°’ì„ ìˆ˜ì •í•´ ì£¼ì‹œë©´ ë©ë‹ˆë‹¤.
     function initLayerPosition(){
-        var width = 300; //¿ìÆí¹øÈ£¼­ºñ½º°¡ µé¾î°¥ elementÀÇ width
-        var height = 400; //¿ìÆí¹øÈ£¼­ºñ½º°¡ µé¾î°¥ elementÀÇ height
-        var borderWidth = 5; //»ùÇÃ¿¡¼­ »ç¿ëÇÏ´Â borderÀÇ µÎ²²
+        var width = 300; //ìš°í¸ë²ˆí˜¸ì„œë¹„ìŠ¤ê°€ ë“¤ì–´ê°ˆ elementì˜ width
+        var height = 400; //ìš°í¸ë²ˆí˜¸ì„œë¹„ìŠ¤ê°€ ë“¤ì–´ê°ˆ elementì˜ height
+        var borderWidth = 5; //ìƒ˜í”Œì—ì„œ ì‚¬ìš©í•˜ëŠ” borderì˜ ë‘ê»˜
 
-        // À§¿¡¼­ ¼±¾ğÇÑ °ªµéÀ» ½ÇÁ¦ element¿¡ ³Ö´Â´Ù.
+        // ìœ„ì—ì„œ ì„ ì–¸í•œ ê°’ë“¤ì„ ì‹¤ì œ elementì— ë„£ëŠ”ë‹¤.
         element_layer.style.width = width + 'px';
         element_layer.style.height = height + 'px';
         element_layer.style.border = borderWidth + 'px solid';
-        // ½ÇÇàµÇ´Â ¼ø°£ÀÇ È­¸é ³Êºñ¿Í ³ôÀÌ °ªÀ» °¡Á®¿Í¼­ Áß¾Ó¿¡ ¶ã ¼ö ÀÖµµ·Ï À§Ä¡¸¦ °è»êÇÑ´Ù.
+        // ì‹¤í–‰ë˜ëŠ” ìˆœê°„ì˜ í™”ë©´ ë„ˆë¹„ì™€ ë†’ì´ ê°’ì„ ê°€ì ¸ì™€ì„œ ì¤‘ì•™ì— ëœ° ìˆ˜ ìˆë„ë¡ ìœ„ì¹˜ë¥¼ ê³„ì‚°í•œë‹¤.
         element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }

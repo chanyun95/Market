@@ -32,7 +32,7 @@ create table article (
     arti_name VARCHAR2(50) NOT NULL,
     arti_content CLOB NOT NULL,
     arti_price NUMBER NOT NULL,
-    arti_image BLOB NOT NULL,
+    arti_image VARCHAR2(1000),
     arti_reg DATE DEFAULT SYSDATE NOT NULL,
     arti_modify DATE,
     arti_hit NUMBER DEFAULT 0 NOT NULL,
@@ -42,4 +42,3 @@ create table article (
     CONSTRAINT article_pk PRIMARY KEY (arti_num),
     CONSTRAINT article_fk FOREIGN KEY (mem_num) REFERENCES member (mem_num)
 );
-create sequence article_seq;

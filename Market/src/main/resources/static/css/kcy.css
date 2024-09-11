@@ -383,3 +383,21 @@ input#auto{
 	font-size: 15px;
     color: red;
 }
+/* 중고 거래 */
+#artiImage .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#artiImage .carousel-item {
+    transition: transform 0.6s ease;
+}
+
+#artiImage .carousel-control-prev,
+#artiImage .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5%;
+}

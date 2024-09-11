@@ -159,15 +159,15 @@
 		<!-- 로고 끝 -->
 		<!-- 메뉴 시작 -->
 		<div class="d-flex justify-content-between align-items-center">
-			<div class="header-menu">
-				<a href="/shop/artiList" class="header-menu-text">중고거래</a>
-			</div>
-			<div class="header-menu">
-				<a href="/medichatCommunity/list" class="header-menu-text">커뮤니티</a>
-			</div>
-			<div class="header-menu">
-				<a href="/faq/faqList" class="header-menu-text">고객센터</a>
-			</div>
+		    <div class="header-menu">
+		        <a href="/shop/artiList" class="header-menu-text">중고거래</a>
+		    </div>
+		    <div class="header-menu">
+		        <a href="/medichatCommunity/list" class="header-menu-text">커뮤니티</a>
+		    </div>
+		    <div class="header-menu">
+		        <a href="/faq/faqList" class="header-menu-text">고객센터</a>
+		    </div>
 		</div>
 		<!-- 메뉴 끝 -->
 	</div>

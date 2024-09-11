@@ -16,7 +16,7 @@
 			<if test="arti_category!=null and arti_category != ''">
 				arti_category = #{arti_category}
 			</if>
-			<if test="keyword != null and keyword = ''">
+			<if test="keyword != null and keyword != ''">
 				<if test="arti_category != null and arti_category != ''">
 					AND
 				</if>
@@ -53,7 +53,7 @@
 					<![CDATA[
 					REPLACE(REPLACE(arti_name,'<','&lt;'),'>','&gt;') title,
 					]]>
-					arti_hit,arti_image,arti_reg,mem_num,arti_price,arti_name,arti_location,arti_sold 
+					arti_hit,arti_image,arti_reg,mem_num,arti_price,arti_name,arti_location,arti_sold,arti_category 
 				FROM article 
 				JOIN member USING(mem_num)
 				<include refid="artiSearch"></include>

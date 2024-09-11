@@ -1,91 +1,91 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <div class="container">
-	<h2>»óÇ° ¸ñ·Ï</h2>
+	<h2>ìƒí’ˆ ëª©ë¡</h2>
 	<div>
-		<a href="artiList">ÀüÃ¼</a>
-		<a href="artiList?arti_category='ÀüÀÚ±â±â'">ÀüÃ¼</a>
-		<a href="artiList?arti_category='ÀüÀÚ±â±â'">ÀüÀÚ±â±â</a>
-		<a href="artiList?arti_category='°¡ÀüÁ¦Ç°'">°¡ÀüÁ¦Ç°</a>
-		<a href="artiList?arti_category='°¡±¸'">°¡±¸</a>
-		<a href="artiList?arti_category='ÀÇ·ù'">ÀÇ·ù</a>
-		<a href="artiList?arti_category='ÀÚµ¿Â÷'">ÀÚµ¿Â÷</a>
-		<a href="artiList?arti_category='½ºÆ÷Ã÷/·¹Àú'">½ºÆ÷Ã÷/·¹Àú</a>
-		<a href="artiList?arti_category='°¡Á¤¿ëÇ°'">°¡Á¤¿ëÇ°</a>
-		<a href="artiList?arti_category='µµ¼­/À½¾Ç/¿µÈ­'">µµ¼­/À½¾Ç/¿µÈ­</a>
-		<a href="artiList?arti_category='¹®±¸/»ç¹«¿ëÇ°'">¹®±¸/»ç¹«¿ëÇ°</a>
-		<a href="artiList?arti_category='Àå³­°¨'">Àå³­°¨</a>
-		<a href="artiList?arti_category='±âÅ¸'">±âÅ¸</a>
+		<a href="artiList">ì „ì²´</a> |
+		<a href="artiList?arti_category=1">ì „ìê¸°ê¸°</a> |
+		<a href="artiList?arti_category=2">ê°€ì „ì œí’ˆ</a> |
+		<a href="artiList?arti_category=3">ê°€êµ¬</a> |
+		<a href="artiList?arti_category=4">ì˜ë¥˜</a> |
+		<a href="artiList?arti_category=5">ìë™ì°¨</a> |
+		<a href="artiList?arti_category=6">ìŠ¤í¬ì¸ /ë ˆì €</a> |
+		<a href="artiList?arti_category=7">ê°€ì •ìš©í’ˆ</a> |
+		<a href="artiList?arti_category=8">ë„ì„œ/ìŒì•…/ì˜í™”</a> |
+		<a href="artiList?arti_category=9">ë¬¸êµ¬/ì‚¬ë¬´ìš©í’ˆ</a> |
+		<a href="artiList?arti_category=10">ì¥ë‚œê°</a> |
+		<a href="artiList?arti_category=11">ê¸°íƒ€</a>
 	</div>
 	<form action="artiList" id="search_form" method="get">
 		<input type="hidden" name="arti_category" value="${param.arti_category}">
 		<ul class="search">
 			<li>
 				<select name="keyfield" id="keyfield">
-					<option value="1"<c:if test="${param.keyfield == 1}">selected</c:if>>»óÇ°¸í</option>
-					<option value="2"<c:if test="${param.keyfield == 2}">selected</c:if>>³»¿ë</option>
-					<option value="3"<c:if test="${param.keyfield == 3}">selected</c:if>>»óÇ°¸í+³»¿ë</option>
+					<option value="1"<c:if test="${param.keyfield == 1}">selected</c:if>>ìƒí’ˆëª…</option>
+					<option value="2"<c:if test="${param.keyfield == 2}">selected</c:if>>ë‚´ìš©</option>
+					<option value="3"<c:if test="${param.keyfield == 3}">selected</c:if>>ìƒí’ˆëª…+ë‚´ìš©</option>
 				</select>
 			</li>
 			<li>
 				<input type="search" name="keyword" id="keyword" value="${param.keyword}">
 			</li>
 			<li>
-				<input type="submit" value="Ã£±â">
+				<input type="submit" value="ì°¾ê¸°">
 			</li>
 		</ul>
 		<div>
 			<select id="order" name="order">
-				<option value="1" <c:if test="${param.order == 1}">selected</c:if>>Á¶È¸¼ö</option>
-				<option value="2" <c:if test="${param.order == 2}">selected</c:if>>°¡°İ¼ø</option>
+				<option value="1" <c:if test="${param.order == 1}">selected</c:if>>ì¡°íšŒìˆ˜</option>
+				<option value="2" <c:if test="${param.order == 2}">selected</c:if>>ê°€ê²©ìˆœ</option>
 			</select>
 			<script type="text/javascript">
 				$('#order').change(function(){
-					location.href='list?arti_category=${param.arti_category}&keyfield='
+					location.href='artiList?arti_category=${param.arti_category}&keyfield='
 													+$('#keyfield').val()+'&keyword=' 
 													+$('#keyword').val()+'&order='
 													+$('#order').val();
 				});
 			</script>
 			<c:if test="${!empty user}">
-				<input type="button" value="»óÇ° µî·Ï" onclick="location.href='insertArticle'">
+				<input type="button" value="ìƒí’ˆ ë“±ë¡" onclick="location.href='insertArticle'">
 			</c:if>
 		</div>
 	</form>
 	<c:if test="${count == 0}">
 		<div>
-			Ç¥½ÃÇÒ »óÇ°ÀÌ ¾ø½À´Ï´Ù.
+			í‘œì‹œí•  ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.
 		</div>
 	</c:if>
 	<c:if test="${count > 0}">
 		<div>
 			<c:forEach var="article" items="${artiList}">
-				<div style="border-bottom:1px solid black;">
-					<div>
-						<c:if test="${!empty article.arti_image}">
-							<img width="80" height="80" src="${pageContext.request.contextPath}/upload/${article.arti_image}">
-						</c:if>
-					</div>
-					<div>
-						${article.arti_name}
-					</div>
-					<div>
-						${article.arti_location}
-					</div>
-					<c:if test="${article.arti_sold == Y}">
-						<div>
-							°Å·¡¿Ï·á
-						</div>
-					</c:if>
-					<div>
-						<b>${article.arti_price}</b>¿ø
-					</div>
-					<div>
-						${article.arti_hit}
-					</div>
-				</div>
+			    <div style="border-bottom:1px solid black;">
+			        <a href="detail?arti_num=${article.arti_num}" style="text-decoration: none; color: inherit;">
+			            <div>
+			                <c:if test="${!empty article.arti_image}">
+			                    <img width="80" height="80" src="${pageContext.request.contextPath}/upload/${article.arti_image}">
+			                </c:if>
+			            </div>
+			            <div>
+			                ${article.arti_name}
+			            </div>
+			            <div>
+			                ${article.arti_location}
+			            </div>
+			            <c:if test="${article.arti_sold == Y}">
+			                <div>
+			                    ê±°ë˜ì™„ë£Œ
+			                </div>
+			            </c:if>
+			            <div>
+			                <b>${article.arti_price}</b>ì›
+			            </div>
+			            <div>
+			                ${article.arti_hit}
+			            </div>
+			        </a>					
+			    </div>
 			</c:forEach>
 		</div>
 		<div style="text-align:center;">${page}</div>

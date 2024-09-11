@@ -32,8 +32,7 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Override
 	public ArticleVO selectAtricle(Long arti_num) {
-		// TODO Auto-generated method stub
-		return null;
+		return articleMapper.selectAtricle(arti_num);
 	}
 
 	@Override

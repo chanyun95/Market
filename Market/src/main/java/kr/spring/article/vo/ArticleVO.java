@@ -31,7 +31,7 @@ public class ArticleVO {
    private int arti_price;
    
    private MultipartFile arti_upload;
-   private byte[] arti_image;
+   private String arti_image;
    
    private Date arti_reg;
    private Date arti_modify;
@@ -47,5 +47,6 @@ public class ArticleVO {
    @NotEmpty(message = "장소명은 필수 입력 항목입니다.")
    private String arti_location2;
    
+   private String mem_id;
 }
 
