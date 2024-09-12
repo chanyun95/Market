@@ -94,7 +94,6 @@ public class MemberController {
 		if(check) {
 			//로그인 처리
 			session.setAttribute("user", member);
-			session.setAttribute("user_type", "membert");
 			
 			log.debug("<인증 성공> : "+ member);
 

@@ -28,6 +28,7 @@ create table member_detail(
 create table article (
     arti_num NUMBER NOT NULL,
     mem_num NUMBER NOT NULL,
+    chat_num NUMBER NOT NULL.
     arti_category VARCHAR2(100) NOT NULL,
     arti_name VARCHAR2(50) NOT NULL,
     arti_content CLOB NOT NULL,
@@ -40,5 +41,31 @@ create table article (
     arti_location VARCHAR2(150) NOT NULL,
     arti_location2 VARCHAR2(150) NOT NULL,
     CONSTRAINT article_pk PRIMARY KEY (arti_num),
-    CONSTRAINT article_fk FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+    CONSTRAINT article_fk1 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+    CONSTRAINT article_fk2 FOREIGN KEY (chat_num) REFERENCES chat (chat_num)
+);
+create sequence article_seq;
+create table article_fav(
+	arti_num NUMBER NOT NULL,
+	mem_num NUMBER NOT NULL,
+	CONSTRAINT arti_fav_fk1 FOREIGN KEY (arti_num) REFERENCES article (arti_num),
+    CONSTRAINT arti_fav_fk2 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+);
+
+create table chat(
+	chat_num NUMBER NOT NULL,
+	mem_num NUMBER NOT NULL,
+	chat_reg_date DATE DEFAULT SYSDATE NOT NULL,
+	chat_status NUMBER(1) DEFAULT 0 NOT NULL,
+	CONSTRAINT chat_pk PRIMARY KEY (chat_num),
+	CONSTRAINT chat_fk FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+);
+create sequence chat_seq;
+create table chat_msg(
+	msg_num NUMBER NOT NULL,
+	chat_num NUMBER NOT NULL,
+	msg_content VARCHAR2(900) NOT NULL,
+	msg_sender_type NUMBER(1) NOT NULL,
+	CONSTRAINT chat_msg_pk PRIMARY KEY (msg_num),
+	CONSTRAINT chat_msg_fk FOREIGN KEY (chat_num) REFERENCES chat (chat_num)
 );

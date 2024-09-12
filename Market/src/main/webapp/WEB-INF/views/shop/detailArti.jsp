@@ -52,12 +52,12 @@
 		</div>
 	</div>
 	<div>
-		<c:if test="${user_num == article.mem_num or user_auth == 9}">
+		<c:if test="${user.mem_num == article.mem_num or user_auth == 9}">
 			<input type="button" onclick="deleteArticle" value="물품 삭제">
 		</c:if>
-		<c:if test="${user_num == article.mem_num}">
+		<c:if test="${user.mem_num == article.mem_num}">
 			<input type="button" onclick="updateSold_btn" value="판매 확정">
-			<input type="button" onclick="updateArticle" value="물품 정보 수정">
+			<input type="button" onclick="location.href='update?arti_num=${article.arti_num}'" value="물품 정보 수정">
 		</c:if>
 	</div>
 	<div>

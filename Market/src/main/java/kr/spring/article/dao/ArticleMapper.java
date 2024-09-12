@@ -23,7 +23,8 @@ public interface ArticleMapper {
 	public void updateArticle(ArticleVO article);
 	//물품 삭제
 	public void deleteArticle(Long arti_num);
-	public void deleteFile(Long arti_num);
+	@Update("UPDATE article SET arti_image = '' WHERE arti_num=#{arti_num}")
+	public void deleteImage(Long arti_num);
 	//조회수 증가
 	@Update("UPDATE article SET hit=hit+1 WHERE arti_num=#{arti_num}")
 	public void updateHit(Long arti_num);

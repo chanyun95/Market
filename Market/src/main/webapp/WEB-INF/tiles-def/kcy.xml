@@ -52,5 +52,9 @@
 		<put-attribute name="title" value="물품 상세"/>
 		<put-attribute name="body" value="/WEB-INF/views/shop/detailArti.jsp"/>
 	</definition>
+	<definition name="updateArticle" extends="kcy">
+		<put-attribute name="title" value="물품 정보 수정"/>
+		<put-attribute name="body" value="/WEB-INF/views/shop/updateArticle.jsp"/>
+	</definition>
 	
 </tiles-definitions>

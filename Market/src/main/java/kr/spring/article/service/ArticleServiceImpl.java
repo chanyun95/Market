@@ -37,8 +37,7 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Override
 	public void updateArticle(ArticleVO article) {
-		// TODO Auto-generated method stub
-		
+		articleMapper.updateArticle(article);
 	}
 
 	@Override
@@ -48,9 +47,8 @@ public class ArticleServiceImpl implements ArticleService{
 	}
 
 	@Override
-	public void deleteFile(Long arti_num) {
-		// TODO Auto-generated method stub
-		
+	public void deleteImage(Long arti_num) {
+		articleMapper.deleteImage(arti_num);
 	}
 
 	@Override

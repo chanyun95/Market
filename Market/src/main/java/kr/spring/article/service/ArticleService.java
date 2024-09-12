@@ -21,7 +21,7 @@ public interface ArticleService {
 	public void updateArticle(ArticleVO article);
 	//물품 삭제
 	public void deleteArticle(Long arti_num);
-	public void deleteFile(Long arti_num);
+	public void deleteImage(Long arti_num);
 	//조회수 증가
 	public void updateHit(Long arti_num);
 }

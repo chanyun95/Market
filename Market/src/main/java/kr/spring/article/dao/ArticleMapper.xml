@@ -63,6 +63,16 @@
 		WHERE rnum >= #{start} AND rnum <= #{end}
 		]]>
 	</select>
+	<!-- 물품 정보 수정 -->
+	<update id="updateArticle" parameterType="articleVO">
+		UPDATE article SET
+			<if test="arti_image != null">
+				arti_image = #{arti_image},
+			</if>
+			arti_category=#{arti_category},arti_name=#{arti_name},arti_content=#{arti_content},
+			arti_price=#{arti_price},arti_location=#{arti_location},arti_location2=#{arti_location2},arti_modify=SYSDATE 
+			WHERE arti_num=#{arti_num}
+	</update>
 </mapper>
 
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.checkerframework.checker.units.qual.s;
 import org.openqa.selenium.devtools.v100.page.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -117,7 +118,7 @@ public class ArticleController {
 	 * 물품 상세
 	 ============================*/
 	@GetMapping("/shop/detail")
-	public String detailArticle(long arti_num,Model model) {
+	public String detailArticle(long arti_num,Model model,HttpSession session) {
 		
 		log.debug("<<물품 상세 글>> : " + arti_num);
 		
@@ -143,9 +144,47 @@ public class ArticleController {
 		
 		return "artiDetail";
 	}
-	
-	
-	
+	/*=============================
+	 * 물품 정보 수정
+	 ============================*/
+	@GetMapping("/shop/update")
+	public String updateArticle(long arti_num,Model model) {
+		ArticleVO articleVO = articleService.selectAtricle(arti_num);
+		
+		model.addAttribute("articleVO",articleVO);
+		
+		return "updateArticle";
+	}
+	@PostMapping("/shop/update")
+	public String updateArticleSubmit(@Valid ArticleVO articleVO,BindingResult result,
+														Model model,HttpServletRequest request) 
+														throws IllegalStateException, IOException {
+		
+		log.debug("<<ArticleVO>> : " + articleVO);
+		
+		//유효성 체크
+		if(result.hasErrors()) {
+			ArticleVO vo = articleService.selectAtricle(articleVO.getArti_num());
+			articleVO.setArti_image(vo.getArti_image());
+			return "updateArticle";
+		}
+		//DB에 저장된 파일 정보
+		ArticleVO db_article = articleService.selectAtricle(articleVO.getArti_num());
+		//파일명 셋팅(FileUtil.createFile에서 파일이 없으면 null 처리)
+		articleVO.setArti_image(FileUtil.createFile(request, articleVO.getArti_upload()));
+		
+		articleService.updateArticle(articleVO);
+		
+		if(articleVO.getArti_upload()!=null && articleVO.getArti_upload().isEmpty()) {
+			//수정 전 파일 삭제
+			FileUtil.removeFile(request, db_article.getArti_image());
+		}
+		model.addAttribute("message","상품 정보 수정 완료");
+		model.addAttribute("url",request.getContextPath()+"/shop/detail?arti_num="+articleVO.getArti_num());
+		model.addAttribute("alertType","success");
+		
+		return "/common/resultAlert";
+	}
 }
 
 

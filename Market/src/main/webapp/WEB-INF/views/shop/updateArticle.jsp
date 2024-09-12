@@ -3,16 +3,51 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container">
-	<h2>상품등록</h2>
-	<form:form action="insertArticle" id="article_insert" enctype="multipart/form-data" modelAttribute="articleVO">
+	<h2>상품 정보수정</h2>
+	<form:form action="updateArticle" id="article_update" enctype="multipart/form-data" modelAttribute="articleVO">
+		<form:hidden path="arti_num"/>
 		<ul>
 			<li>
 				<input type="file" name="arti_upload" id="arti_upload">
+				<c:if test="${!empty articleVO.arti_image}">
+					<div class="image_detail">
+						(${articleVO.arti_image})사진이 등록되어 있습니다.
+						<input type="button" value="지우기" id="image_delete">
+					</div>
+					<script type="text/javascript">
+						$(function(){
+							$('#image_delete').click(function(){
+								const choice = confirm('삭제하시겠습니까?');
+								if(choice){
+									$.ajax({
+										url:'deleteImage',
+										data:{arti_num:${articleVO.arti_num}},
+										type:'post',
+										dataType:'json',
+										success:function(param){
+											if(param.result == 'logout'){
+												alert('로그인 후 이용바랍니다.');
+											}else if(param.result == 'wrongAccess'){
+												alert('잘못된 접속 입니다.');
+											}else if(param.result == 'success'){
+												$('#image_detail').hide();
+											}else{
+												alert('사지 수정 오류 발생');
+											}
+										},
+										error:function(){
+											alert('네트워크 오류 발생');
+										}
+									});
+								}
+							});
+						});
+					</script>
+				</c:if>
 			</li>
 			<li>
 			    <form:label path="arti_category">카테고리</form:label>
 			    <form:select path="arti_category">
-			        <option disabled="disabled" selected>선택하세요</option>
 			        <form:option value="1">전자기기</form:option>
 			        <form:option value="2">가전제품</form:option>
 			        <form:option value="3">가구</form:option>
@@ -54,9 +89,9 @@
 				<form:errors path="arti_location2" error="error-color"/>
 			</li>
 		</ul>
-		<div class="button-insert">
-			<input type="button" value="취소" id="reload_btn" onclick="location.href='${pageContext.request.contextPath}/main/main'">		
-			<form:button class="default-btn fw-7 fs-17">물품 등록</form:button>
+		<div class="button-update">
+			<input type="button" value="취소" id="reload_btn" onclick="location.href='${pageContext.request.contextPath}/shop/detail?arti_num='${articleVO.arti_num}">		
+			<form:button class="default-btn fw-7 fs-17">물품 정보 수정</form:button>
 		</div>
 	</form:form>
 <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
