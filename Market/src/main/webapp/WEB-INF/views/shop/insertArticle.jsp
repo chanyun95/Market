@@ -2,8 +2,59 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<div class="container">
-	<h2>상품등록</h2>
+<style>
+        /* Custom styles can go here */
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control, .form-control-file {
+            border-radius: 0.25rem;
+        }
+
+        .form-error {
+            color: #dc3545;
+            font-size: 0.875rem;
+        }
+
+        .default-btn {
+            border-radius: 0.25rem;
+        }
+    </style>
+<div class="container form-container">
+	<h2 class="text-center">상품등록</h2>
 	<form:form action="insertArticle" id="article_insert" enctype="multipart/form-data" modelAttribute="articleVO">
 		<ul>
 			<li>

@@ -16,6 +16,7 @@
 <div id="main">
 	<div id="main_header">
 		<tiles:insertAttribute name="header"/>
+		<hr>
 	</div>
 	<div class="custom-container">
 		<div id="main_body">

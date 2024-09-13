@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div class="container">
 	<h2>상품 정보수정</h2>
-	<form:form action="updateArticle" id="article_update" enctype="multipart/form-data" modelAttribute="articleVO">
+	<form:form action="update" id="article_update" enctype="multipart/form-data" modelAttribute="articleVO">
 		<form:hidden path="arti_num"/>
 		<ul>
 			<li>

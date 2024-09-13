@@ -42,8 +42,7 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Override
 	public void deleteArticle(Long arti_num) {
-		// TODO Auto-generated method stub
-		
+		articleMapper.deleteArticle(arti_num);
 	}
 
 	@Override
@@ -53,8 +52,7 @@ public class ArticleServiceImpl implements ArticleService{
 
 	@Override
 	public void updateHit(Long arti_num) {
-		// TODO Auto-generated method stub
-		
+		articleMapper.updateHit(arti_num);
 	}
 
 }

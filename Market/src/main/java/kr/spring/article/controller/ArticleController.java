@@ -72,7 +72,7 @@ public class ArticleController {
 		articleService.insertArticle(articleVO);
 		
 		model.addAttribute("message","상품등록이 완료되었습니다.");
-		model.addAttribute("url",request.getContextPath()+"/main/main");
+		model.addAttribute("url",request.getContextPath()+"/shop/artiList");
 		model.addAttribute("alertType","success");
 		
 		return "/common/resultAlert";
@@ -185,19 +185,21 @@ public class ArticleController {
 		
 		return "/common/resultAlert";
 	}
+	/*================
+	 * 상품 삭제
+	 *================*/
+	@GetMapping("/shop/delete")
+	public String deleteArticle(long arti_num,HttpServletRequest request) {
+		
+		log.debug("<<상품 삭제 : >> : " + arti_num);
+		
+		ArticleVO db_article = articleService.selectAtricle(arti_num);
+		//상품 삭제
+		articleService.deleteArticle(arti_num);
+		if(db_article.getArti_image()!=null) {
+			//사진이 있을 경우 글과 함께 데이터 삭제
+			FileUtil.removeFile(request, db_article.getArti_image());
+		}
+		return "redirect:/shop/artiList";
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

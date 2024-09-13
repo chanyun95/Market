@@ -53,7 +53,16 @@
 	</div>
 	<div>
 		<c:if test="${user.mem_num == article.mem_num or user_auth == 9}">
-			<input type="button" onclick="deleteArticle" value="물품 삭제">
+			<input type="button" onclick="deleteArticle" value="물품 삭제" id="delete_btn">
+			<script type="text/javascript">
+				const delete_btn = document.getElementById('delete_btn');
+				delete_btn.onclick = function(){
+					const choice = confirm('삭제하시겠습니까?');
+					if(choice){
+						location.replace('delete?arti_num=${article.arti_num}');
+					}
+				};
+			</script>
 		</c:if>
 		<c:if test="${user.mem_num == article.mem_num}">
 			<input type="button" onclick="updateSold_btn" value="판매 확정">
