@@ -52,20 +52,48 @@ create table article_fav(
     CONSTRAINT arti_fav_fk2 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
 );
 
+--1대1 채팅
 create table chat(
 	chat_num NUMBER NOT NULL,
+	chatroom_num NUMBER NOT NULL,
 	mem_num NUMBER NOT NULL,
+	message VARCHAR2(4000) NOT NULL,
 	chat_reg_date DATE DEFAULT SYSDATE NOT NULL,
-	chat_status NUMBER(1) DEFAULT 0 NOT NULL,
 	CONSTRAINT chat_pk PRIMARY KEY (chat_num),
-	CONSTRAINT chat_fk FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+	CONSTRAINT chat_fk1 FOREIGN KEY (chatroom_num) REFERENCES chatroom (chatroom_num),
+	CONSTRAINT chat_fk2 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
 );
 create sequence chat_seq;
-create table chat_msg(
-	msg_num NUMBER NOT NULL,
-	chat_num NUMBER NOT NULL,
-	msg_content VARCHAR2(900) NOT NULL,
-	msg_sender_type NUMBER(1) NOT NULL,
-	CONSTRAINT chat_msg_pk PRIMARY KEY (msg_num),
-	CONSTRAINT chat_msg_fk FOREIGN KEY (chat_num) REFERENCES chat (chat_num)
+
+create table chatroom(
+	chatroom_num NUMBER NOT NULL,
+	basic_name VARCHAR2(900) NOT NULL,
+	chatroom_date DATE DEFAULT SYSDATE NOT NULL,
+	CONSTRAINT chatroom_pk PRIMARY KEY (chatroom_num)
 );
+create sequence chatroom_seq;
+
+create table chat_member(
+	chatroom_num NUMBER NOT NULL,
+	mem_num NUMBER NOT NULL,
+	room_name VARCHAR2(900) NOT NULL,
+	member_date DATE DEFAULT SYSDATE NOT NULL,
+	CONSTRAINT chatmember_fk1 FOREIGN KEY (chatroom_num) REFERENCES chatroom (chatroom_num),
+	CONSTRAINT chatmember_fk2 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+);
+
+create table chat_read(
+	chatroom_num NUMBER NOT NULL,
+	chat_num NUMBER NOT NULL,
+	mem_num NUMBER NOT NULL,
+	CONSTRAINT chatread_fk1 FOREIGN KEY (chatroom_num) REFERENCES chatroom (chatroom_num),
+	CONSTRAINT chatread_fk2 FOREIGN KEY (chat_num) REFERENCES chat (chat_num),
+	CONSTRAINT chatread_fk3 FOREIGN KEY (mem_num) REFERENCES member (mem_num)
+);
+
+
+
+
+
+
+
