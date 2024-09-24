@@ -203,42 +203,27 @@
   					${noti_cnt}
 				</span>
 			</div> --%>
-			<c:if test="${user.mem_auth==2}">
-				<div class="header-status-rightBox">
-					<div class="text-center">
-						<img id="header-profile" src="${pageContext.request.contextPath}/member/memPhotoView" width="40" height="40" class="border rounded-circle">
-			    	</div>
+			<div class="header-status-rightBox">
+				<div class="text-center">
+					<img id="header-profile" src="${pageContext.request.contextPath}/member/memPhotoView" width="40" height="40" class="border rounded-circle">
+		    	</div>
+			</div>
+			<div id="header-status-div" style="display: none;">
+				<div class="header-status-select">
+					<a href="/member/myPage">내 정보</a>
 				</div>
-				<div id="header-status-div" style="display: none;">
-					<div class="header-status-select">
-						<a href="/member/myPage">내 정보</a>
-					</div>
-					<div class="select-line"></div>
-					<div class="header-status-select">
-						<a href="/member/naverLogout">로그아웃</a>						
-					</div>
+				<div class="select-line"></div>
+				<div class="header-status-select">
+					<a href="/member/logout">로그아웃</a>						
 				</div>
-			</c:if>
-			<c:if test="${user.mem_auth==9}">
-				<div class="header-status-rightBox">
-					<div class="text-center">
-						<img id="header-profile" src="${pageContext.request.contextPath}/member/memPhotoView" width="40" height="40" class="border rounded-circle">
-			    	</div>
-				</div>
-				<div id="header-status-div" style="display: none;">
-					<div class="select-line"></div>
-					<div class="header-status-select">
-						<a href="/member/logout">로그아웃</a>
-					</div>
-				</div>
-			</c:if>
+			</div>
 		</div>
 		<!-- 알림 + 프로필 끝 -->
 		</c:if>
 	</div>
 </div>
 <!-- 상단 끝 -->
-<!-- <div id="noti_div" style="display:none;" class="bg-white">
+<div id="noti_div" style="display:none;" class="bg-white">
 	<div class="fw-7 fs-20 text-dark-7 text-center mb-4">알림 내역</div>
 		<div id="noti_box">
 			
@@ -410,4 +395,4 @@
 	} else {
 	    // 비로그인 시 JavaScript는 필요 없음
 	}
-</script> -->
+</script>

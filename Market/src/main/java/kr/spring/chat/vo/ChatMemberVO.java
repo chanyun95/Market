@@ -1,5 +1,16 @@
 package kr.spring.chat.vo;
 
-public class ChatMemberVO {
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@Setter
+@Getter
+@ToString
+public class ChatMemberVO {
+	private long chatroom_num;
+	private long mem_num;
+	private String room_name;
+	
+	private String id;
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="kr.spring.chat.dao.ChatMapper"> 
+	 <resultMap type="chatRoomVO" id="chatMap">
+	 	<result property="chatVO.message" column="message"/>
+	 	<result property="chatVO.chat_date" column="chat_date"/>
+	 	<result property="chatMemberVO.room_name" column="room_name"/>
+	 </resultMap>
+	 
+	 <sql id="chatSub">
+	 	FROM chatroom r JOIN chat_member m USING(chatroom_num) 
+	 	LEFT OUTER JOIN (SELECT 
+	 						chatroom_num,mem_num,COUNT(*) room_cnt 
+	 					FROM chat_read 
+	 					WHERE mem_num=#{mem_num} 
+	 					GROUP BY chatroom_num,mem_num) e 
+	 	USING(chatroom_num) 
+	 	LEFT OUTER JOIN (SELECT
+	 						chat_num,
+	 						<![CDATA[
+	 						REPLACE(REPLACE(
+	 							REPLACE(
+	 							message,'<','&lt;'),'>','&gt;'),'@{member}@','') message, 
+	 						]]>
+	 						chat_date,chatroom_num 
+	 						FROM chat WHERE chat_num IN (SELECT MAX(chat_num) chat_num 
+	 														FROM chat GROUP BY chatroom_num)
+	 						)
+	 	USING(chatroom_num) 
+	 	WHERE m.mem_num=#{mem_num}
+	</sql>
+	<!-- 채팅방 목록 -->
+	<select id="selectChatRoomList" parameterType="map" resultMap="chatMap">
+		SELECT  * FROM (SELECT 
+							a.*, rownum rnum FROM (
+											SELECT * 
+											<include refid="chatSub"></include>
+											ORDER BY chat_date DESC)a)
+		<![CDATA[
+			WHERE rnum >= #{start} AND rnum <= #{end} 
+		]]>
+	</select>
+	<!-- 채팅방 멤버 -->
+	<select id="selectChatMember" parameterType="long" resultType="chatMemberVO">
+		SELECT mem_num,id,room_name FROM chat_member 
+		JOIN member 
+		USING(mem_num) 
+		WHERE chatroom_num=#{chatroom_num}
+	</select>
+	<!-- 채팅방 메시지 읽기 -->
+	<select id="selectChatDetail" parameterType="long" resultType="chatVO">
+		SELECT 
+			<![CDATA[
+				REPLACE(REPLACE(message,'<','&lt;'),'>','&gt;') message, 
+			]]>
+			chat_date,
+			read_count,
+			mem_num,
+			mem_id,
+		FROM chat 
+		LEFT OUTER JOIN (SELECT chat_num,COUNT(*) read_count FROM chat_read 
+												GROUP BY chat_num) 
+		USING(chat_num) 
+		JOIN member USING(mem_num) 
+		WHERE chatroom_num=#{chatroom_num} 
+		AND chat_date >= (SELECT member_date FROM chat_member 
+											WHERE chatroom_num=#{chatroom_num} 
+												AND mem_num=#{mem_num}) 
+		ORDER BY chat_date ASC
+	</select>
+	
+ </mapper>
+
+
+
+
+
+
+
+
+
+
+
+

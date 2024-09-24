@@ -98,11 +98,11 @@
 		</div>
 	</div>
 	<div>
-		<c:if test="${user_num == article.mem_num}">
+		<c:if test="${user.mem_num == article.mem_num}">
 			<input type="button" value="나에게 온 채팅">
 		</c:if>
-		<c:if test="${user_num != article.mem_num}">
-			<input type="button" value="채팅하기">
+		<c:if test="${user.mem_num != article.mem_num}">
+			<input type="button" value="채팅하기" onclick="">
 		</c:if>
 	</div>
 	<div>
