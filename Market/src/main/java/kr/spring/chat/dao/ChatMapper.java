@@ -21,9 +21,6 @@ public interface ChatMapper {
 	//채팅방 생성
 	@Insert("INSERT INTO chatroom (chatroom_num,basic_name) VALUES (#{chatroom_num},#{basic_name})")
 	public void insertChatRoom(ChatRoomVO chatRoomVO);
-	//채팅방 멤버 추가
-	@Insert("INSERT INTO chat_member (chatroom_num,room_name,mem_num) VALUES (#{chatroom_num},#{room_name},#{mem_num})")
-	public void insertChatRoomMember(@Param(value="chatroom_num") Long chat_num, @Param(value="room_name") String room_name,@Param(value="mem_num") Long mem_num);
 	//채팅방 멤버 읽기
 	public List<ChatMemberVO> selectChatMember(Long chatroom_num);
 	//채팅 메시지 번호 생성
