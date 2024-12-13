@@ -64,17 +64,17 @@
 			    <form:label path="arti_category">카테고리</form:label>
 			    <form:select path="arti_category">
 			        <option disabled="disabled" selected>선택하세요</option>
-			        <form:option value="전자기기">전자기기</form:option>
-			        <form:option value="가전제품">가전제품</form:option>
-			        <form:option value="가구">가구</form:option>
-			        <form:option value="의류">의류</form:option>
-			        <form:option value="자동차">자동차</form:option>
-			        <form:option value="스포츠/레저">스포츠/레저</form:option>
-			        <form:option value="가정용품">가정용품</form:option>
-			        <form:option value="도서/음악/영화">도서/음악/영화</form:option>
-			        <form:option value="문구/사무용품">문구/사무용품</form:option>
-			        <form:option value="장난감">장난감</form:option>
-			        <form:option value="기타">기타</form:option>
+			        <form:option value="1">전자기기</form:option>
+			        <form:option value="2">가전제품</form:option>
+			        <form:option value="3">가구</form:option>
+			        <form:option value="4">의류</form:option>
+			        <form:option value="5">자동차</form:option>
+			        <form:option value="6">스포츠/레저</form:option>
+			        <form:option value="7">가정용품</form:option>
+			        <form:option value="8">도서/음악/영화</form:option>
+			        <form:option value="9">문구/사무용품</form:option>
+			        <form:option value="10">장난감</form:option>
+			        <form:option value="11">기타</form:option>
 			    </form:select>
 			    <form:errors path="arti_category" error="error-color"/>
 			</li>

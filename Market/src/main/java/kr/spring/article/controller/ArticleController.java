@@ -139,8 +139,6 @@ public class ArticleController {
 		article.setArti_name(StringUtil.useNoHTML(article.getArti_name()));
 		article.setArti_content(StringUtil.useBrNoHTML(article.getArti_content()));
 		
-		log.debug("<<물품 상세 글>> : " + article);
-		
 		model.addAttribute("artiList",artiList);
 		model.addAttribute("article",article);
 		
