@@ -1,5 +1,7 @@
 package kr.spring.chat.vo;
 
+import java.sql.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,11 +11,12 @@ import lombok.ToString;
 @ToString
 public class ChatVO {
 	private long chat_num;
-	private long chatroom_num;
 	private long mem_num;
-	private String message;
-	private String chat_date;
+	private Date chat_reg_date;
 	
-	private int read_count;
-	private String id;
+	//조인으로 생성
+	private String mem_id;	//의사 이름 or 환자 이름
+
+	
 }
+

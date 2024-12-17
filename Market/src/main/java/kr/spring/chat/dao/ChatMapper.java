@@ -9,8 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import kr.spring.chat.vo.ChatMemberVO;
-import kr.spring.chat.vo.ChatRoomVO;
 import kr.spring.chat.vo.ChatVO;
 
 @Mapper
@@ -20,9 +18,8 @@ public interface ChatMapper {
 	public Integer selectChatRoomNum();
 	//채팅방 생성
 	@Insert("INSERT INTO chatroom (chatroom_num,basic_name) VALUES (#{chatroom_num},#{basic_name})")
-	public void insertChatRoom(ChatRoomVO chatRoomVO);
 	//채팅방 멤버 읽기
-	public List<ChatMemberVO> selectChatMember(Long chatroom_num);
+	
 	//채팅 메시지 번호 생성
 	@Select("SELECT chat_seq.nextval FROM dual")
 	public Integer selectChatNum();
@@ -30,8 +27,7 @@ public interface ChatMapper {
 	@Insert("INSERT INTO chat(chat_num,chatroom_num,mem_num,message) VALUES (#{chat_num},#{chatroom_num},#{mem_num},#{message})")
 	public void insertChat(ChatVO chatVO);
 	//채팅방 목록
-	public List<ChatRoomVO> selectChatRoomList(Map<String, Object> map);
-	public Integer selectRowCount(Map<String, Object> map);
+	
 	//읽지 않은 채팅 기록
 	@Insert("INSERT INTO chat_read(chatroom_num,chat_num,mem_num) VALUES(#{chatroom_num},#{chat_num},#{mem_num})")
 	public void insertChatRead(@Param(value="chatroom_num") Long chatroom_num,@Param(value="chat_num") Long chat_num,@Param(value="mem_num") Long mem_num);
